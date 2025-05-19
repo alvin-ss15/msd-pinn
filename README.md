@@ -22,9 +22,11 @@ Output states: x₁ and x₃ positions (denoted as yₖᵣ) which need to be con
 
 The system dynamics are governed by the following coupled nonlinear differential equations:
 
-mẍ₁ = k(-2x₁ + x₂) + kₚ[-(x₁)³ + (x₂ - x₁)³] + d(ẋ₂ - 2ẋ₁) + u₁
-mẍ₂ = k(x₁ - 2x₂ + x₃) + kₚ[(x₃ - x₂)³ - (x₂ - x₁)³] + d(ẋ₁ - 2ẋ₂) + dist
-mẍ₃ = k(x₂ - x₃) + kₚ(x₂ - x₃)³ + d(ẋ₂ - ẋ₃) + u₃
+$$m\ddot{x}_1 = k(-2x_1 + x_2) + k_p[-(x_1)^3 + (x_2 - x_1)^3] + d(\dot{x}_2 - 2\dot{x}_1) + u_1$$
+
+$$m\ddot{x}_2 = k(x_1 - 2x_2 + x_3) + k_p[(x_3 - x_2)^3 - (x_2 - x_1)^3] + d(\dot{x}_1 - 2\dot{x}_2) + \text{dist}$$
+
+$$m\ddot{x}_3 = k(x_2 - x_3) + k_p(x_2 - x_3)^3 + d(\dot{x}_2 - \dot{x}_3) + u_3$$
 
 
 Physics Informed Neural Networks Approach
