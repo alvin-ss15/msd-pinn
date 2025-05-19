@@ -1,4 +1,4 @@
-[![Demo](https://img.youtube.com/vi/mCCggAHRHGE/0.jpg)](https://youtu.be/mCCggAHRHGE)
+![Mass Spring Damper Animation](3c8332237d0380.gif)
 
 Nonlinear MIMO Mass-Spring-Damper System with Physics Informed Neural Networks
 
