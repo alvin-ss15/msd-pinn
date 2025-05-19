@@ -30,6 +30,7 @@ m\ddot{x}_3 &= k(x_2 - x_3) + k_p(x_2 - x_3)^3 + d(\dot{x}_2 - \dot{x}_3) + u_3
 \end{alignat}
 ```
 
+
 Physics Informed Neural Networks Approach
 
 This project uses Physics Informed Neural Networks (PINNs) to solve and predict the behavior of this nonlinear system. The PINN incorporates the physical laws directly into the neural network training process by:
