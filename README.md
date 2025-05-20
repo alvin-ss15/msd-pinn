@@ -1,8 +1,6 @@
+# Mass-Spring-Damper System with Physics Informed Neural Networks
+
 ![Mass Spring Damper Animation](3c8332237d0380.gif)
-
-Nonlinear MIMO Mass-Spring-Damper System with Physics Informed Neural Networks
-
-Click the image above to watch the demo video
 
 Project Overview
 
