@@ -40,7 +40,9 @@ This project uses Physics Informed Neural Networks (PINNs) to solve and predict 
 
 This project is currently in early development. Additional features and documentation will be added as the project progresses.
 
-![Prediction Graph](5a7db1492e8c06.jpg)
+![Low Frequency](4d7f93b62c0e18.jpg)
+
+![High Frequency](5a7db1492e8c06.jpg)
 
 ### Neural Network Training Results
 
