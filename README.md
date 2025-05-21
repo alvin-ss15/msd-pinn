@@ -36,52 +36,72 @@ This project uses Physics Informed Neural Networks (PINNs) to solve and predict 
 
 - Enforcing the physical constraints of the system
 
+#### Force Equations
+```math
+\begin{align}
+f_1 &= k(-2x_1 + x_2) + k_p(-x_1^3 + (x_2-x_1)^3) \\
+f_2 &= k(x_1 - 2x_2 + x_3) + k_p((x_3-x_2)^3 - (x_2-x_1)^3) \\
+f_3 &= k(x_2 - x_3) + k_p(-(x_3-x_2)^3)
+\end{align}
+````
+
+#### Acceleration Equations
+```math
+\begin{align}
+\ddot{x}_1 &= \frac{f_1}{m} \\
+\ddot{x}_2 &= \frac{f_2}{m} \\
+\ddot{x}_3 &= \frac{f_3}{m}
+\end{align}
+```
+
+#### Physics Loss Components
+```math
+\begin{align}
+E_{loss} &= |E_{pred} - W_{damping}| \\
+W_{damping} &= d \sum \dot{x}^2 \Delta t \\
+L_{Newton} &= |\ddot{x}_1|^2 + |\ddot{x}_2|^2 + |\ddot{x}_3|^2 \\
+L_{physics} &= E_{loss} + 0.1 \cdot L_{Newton}
+\end{align}
+```
+
 ## Current Status
 
 This project is currently in early development. Additional features and documentation will be added as the project progresses.
 
-![Low Frequency](4d7f93b62c0e18.jpg)
-*Low-Frequency Signal*
+#### Random Sampling of Test Results
 
-![High Frequency](5a7db1492e8c06.jpg)
-*High-Frequency Signal*
+| ![1](3f8c2e94a17d05.jpg) | ![2](3f2ce8716b9d42.jpg) |
+|----|----|
+| ![3](5a7db1492e8c06.jpg) | ![4](8d4af2371c6e90.jpg) |
 
 ### Neural Network Training Results
 
-This repository contains training results for our physics-informed neural network model.
+This repository contains training results for the physics-informed neural network model.
 
 ### Training Summary
 
-- **Total Training Time**: 04:21:49
-- **GPU Memory Used**: 1.34 GB (NVIDIA GeForce RTX 3070)
-- **Best Validation Loss**: 154.1845 (at iteration 1250)
+- **Total Training Time**: 11:38:43
+- **GPU Memory Used**: 1.53 GB (NVIDIA GeForce RTX 3070)
+- **Best Validation Loss**: 1.418526 (at iteration 680)
 - **Early Stopping**: Applied with patience of 20
 
 #### Training Loss Progression
 
 The graph below shows the total loss and its components (prediction loss and physics loss) throughout training:
 
-![Training Loss](2b8d159f37c604.jpg)
+![Training Progress Monitoring](3a7f216e48d905.jpg)
 
 The total loss combines prediction loss (weight 2.0) and physics loss (weight increasing from 0.1 to 3.0). Red dashed lines indicate learning rate changes.
 
-#### Validation Performance
+Validation Performance: Validation loss was measured at regular intervals. The best model was saved at iteration 680
 
-Validation loss was measured at regular intervals. The best model was saved at iteration 1250:
-
-![Validation Loss](7a3e0d5f91c826.jpg)
-
-#### Hyperparameter Progression
-
-The physics loss weight (λ) was gradually increased during training, while learning rate was decreased twice:
-
-![Hyperparameters](9f4e71c82d6a05.jpg)
+Hyperparameter Progression: The physics loss weight (λ) was gradually increased during training, while learning rate was decreased twice:
 
 #### Key Observations
 
-- Best validation performance was achieved early in training, suggesting possible overfitting with continued training
-- The physics loss weight (λ) increased from 0.24 to 1.55 throughout training
-- Learning rate decreased from 0.001 to 0.00049 over the course of training
+- Best validation performance was achieved early in training, suggesting possible decent generalization and fitting
+- The physics loss weight (λ) increased from 0.24 to 3.0 throughout training
+- Learning rate decreased from 0.001 to 0.000002 over the course of training
 - Training balanced prediction accuracy with physics-based constraints
 
 ## Contact
