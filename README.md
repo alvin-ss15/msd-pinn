@@ -91,11 +91,11 @@ The graph below shows the total loss and its components (prediction loss and phy
 
 ![Training Progress Monitoring](3a7f216e48d905.jpg)
 
-The total loss combines prediction loss (weight 2.0) and physics loss (weight increasing from 0.1 to 3.0). Red dashed lines indicate learning rate changes.
+The total loss combines prediction loss (weight 2.0) and physics loss (weight increasing from 0.1 to 3.0).
 
-Validation Performance: Validation loss was measured at regular intervals. The best model was saved at iteration 680
+__*Validation Performance:*__ Validation loss was measured at regular intervals. The best model was saved at iteration 680
 
-Hyperparameter Progression: The physics loss weight (λ) was gradually increased during training, while learning rate was decreased twice:
+__*Hyperparameter Progression:*__ The physics loss weight (λ) was gradually increased during training, while learning rate was decreased twice:
 
 #### Key Observations
 
